@@ -13,12 +13,11 @@ body {
   background-color: #f9f9f9;
 }
 
-/* Container to center content and limit width */
+/* Container */
 .container {
   max-width: 1400px;
   padding: 2rem 1rem;
   margin: 0 auto;
-  text-align: center;
 }
 
 /* Hero Section */
@@ -32,7 +31,36 @@ body {
   justify-content: center;
 }
 
-/* Hero Text */
+/* Inner wrapper for 2-column layout */
+.hero-inner {
+  display: flex;
+  max-width: 1200px;
+  width: 100%;
+  gap: 4rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Text Column */
+.hero-text {
+  flex: 1;
+  max-width: 600px;
+}
+
+/* Image Column */
+.hero-image {
+  flex: 1;
+  max-width: 600px;
+}
+
+.hero-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* Text styles */
 .hero-title {
   font-size: 3rem;
   font-weight: 700;
@@ -44,7 +72,7 @@ body {
   margin-bottom: 2rem;
 }
 
-/* Button Style */
+/* Button */
 .btn-primary {
   background-color: #ff7e5f;
   color: white;
@@ -53,6 +81,8 @@ body {
   font-weight: 600;
   text-decoration: none;
   transition: background-color 0.3s ease;
+  display: inline-block;
+  white-space: nowrap;
 }
 
 .btn-primary:hover {
@@ -60,14 +90,41 @@ body {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
+
+/* Tablet and below */
+@media (max-width: 900px) {
   .hero-title {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+  .hero {
+    padding: 5rem 1rem;
+  }
+}
+
+/* Mobile: stack columns vertically */
+@media (max-width: 600px) {
+  .hero-inner {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
   .hero-subtitle {
     font-size: 1rem;
   }
+
   .hero {
     padding: 4rem 1rem;
+  }
+
+  .hero-text,
+  .hero-image {
+    max-width: 100%;
   }
 }
